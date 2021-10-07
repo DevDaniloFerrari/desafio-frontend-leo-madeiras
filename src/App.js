@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router } from 'react-router-dom'
+import SideMenu from './shared/components/SideMenu';
+import { Switch, Route } from 'react-router-dom';
+import PeopleList from './pages/PeopleList'
+import PersonForm from './pages/PersonForm'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <SideMenu />
+      <Switch>
+        <Route path="/people">
+          <PeopleList />
+        </Route>
+        <Route path="/addPeople">
+          <PersonForm />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
