@@ -3,6 +3,8 @@ import { NotificationManager } from 'react-notifications'
 import { getPeople, deletePerson } from '../../shared/services/people.service'
 import Table from '../../shared/components/Table'
 import { useHistory } from 'react-router'
+import { Delete, Edit } from '@material-ui/icons';
+import styled from 'styled-components'
 
 export default function PeopleList() {
     const history = useHistory();
@@ -52,8 +54,8 @@ export default function PeopleList() {
     const data = useMemo(() => people.map(person => ({
         ...person,
         acoes: <>
-            <button onClick={() => onEditPerson(person.id)}>Editar</button>
-            <button onClick={() => onDeletePerson(person.id)}>Deletar</button>
+            <EditIcon onClick={() => onEditPerson(person.id)} />
+            <DeleteIcon onClick={() => onDeletePerson(person.id)} />
         </>
     })), [people])
 
@@ -64,3 +66,13 @@ export default function PeopleList() {
         </div>
     )
 }
+
+const DeleteIcon = styled(Delete)`
+    color: red;
+    cursor: pointer;
+`
+
+const EditIcon = styled(Edit)`
+    color: gray;
+    cursor: pointer;
+`
