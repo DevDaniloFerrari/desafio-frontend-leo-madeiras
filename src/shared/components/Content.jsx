@@ -3,6 +3,8 @@ import { Switch, Route } from 'react-router-dom'
 import PeopleList from '../../pages/PeopleList'
 import PersonForm from '../../pages/PersonForm'
 import styled from 'styled-components'
+import { NotificationContainer } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 export default function Content() {
     return (
@@ -14,6 +16,7 @@ export default function Content() {
                 <Route path="/addPeople">
                     <PersonForm />
                 </Route>
+                <NotificationContainer />
             </Container>
         </Switch>
     )

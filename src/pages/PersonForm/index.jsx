@@ -3,12 +3,14 @@ import { addPerson } from '../../shared/services/people.service'
 import { useForm } from "react-hook-form";
 import InputMask from 'react-input-mask';
 import styled from 'styled-components';
+import { NotificationManager } from 'react-notifications';
 
 export default function PersonForm() {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = (data) => {
         addPerson(data)
+        NotificationManager.success('Pessoa adicionada!', 'Sucesso', 3000)
         reset()
     }
 
