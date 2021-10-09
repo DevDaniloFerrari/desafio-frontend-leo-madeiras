@@ -39,7 +39,6 @@ export default function PeopleList() {
         []
     )
 
-    console.log(people)
     const data = useMemo(() => people, [people])
 
     return (

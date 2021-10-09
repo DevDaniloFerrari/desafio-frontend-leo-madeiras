@@ -21,10 +21,14 @@ const Menu = styled.div`
 
 const Item = styled(Link)`
     text-decoration: none;
+    margin-left: 5px;
+    margin-top: 10px;
 `
 
 const LogoLeo = styled.img.attrs({
     src: logo
 })`
     height: 80px;
+    margin-top: 5px;
+    margin-bottom: 20px;
 `

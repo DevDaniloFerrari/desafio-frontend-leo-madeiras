@@ -94,19 +94,6 @@ const ColumnsHeaderRow = styled.tr`
     border: 1px solid #E0E0E0;
 `
 
-const Tr = styled.div`
-    height: 50px;
-    padding: 0 24px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    &&:not(:last-child) {
-        border: 1px solid #F2F2F2;
-    }
-    &&:hover {
-        background-color: #fcfcff;
-    }
-`;
 
 const Th = styled.th`
   vertical-align: middle;
@@ -124,7 +111,6 @@ const Th = styled.th`
     padding-right: 15px;
   }
 `
-
 const TRBody = styled.tr`
   background-color: white;
   border: 1px solid #F2F2F2;
@@ -147,8 +133,6 @@ const TRBody = styled.tr`
     }
   }
 `;
-
-const Tbody = styled.div``
 
 const TD = styled.td`
   height: 40px;
