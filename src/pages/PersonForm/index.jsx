@@ -1,24 +1,38 @@
 import React from 'react'
-import { addPerson } from '../../shared/services/people.service'
+import { addPerson, editPerson } from '../../shared/services/people.service'
 import { useForm } from "react-hook-form";
 import InputMask from 'react-input-mask';
 import styled from 'styled-components';
 import { NotificationManager } from 'react-notifications';
 import { useHistory } from 'react-router';
+import { useParams } from 'react-router-dom'
+import { getPerson } from '../../shared/services/people.service'
 
 export default function PersonForm() {
+    const { id } = useParams();
+    const person = getPerson(id)
+
     const history = useHistory()
-    const defaultValues = {
-        nome: '',
-        cpf: '',
-        telefone: '',
-        email: ''
-    }
-    const { register, handleSubmit } = useForm(defaultValues);
+    const { register, handleSubmit } = useForm({
+        defaultValues:
+        {
+            nome: person?.nome,
+            cpf: person?.cpf,
+            telefone: person?.telefone,
+            email: person?.email
+        }
+    });
+
 
     const onSubmit = (data) => {
-        addPerson(data)
-        NotificationManager.success('Pessoa adicionada!', 'Sucesso', 3000)
+        if (id) {
+            editPerson({ ...data, id: person.id })
+            NotificationManager.success('Pessoa editada!', 'Sucesso', 3000)
+        }
+        else {
+            addPerson(data)
+            NotificationManager.success('Pessoa adicionada!', 'Sucesso', 3000)
+        }
         history.push('/people')
     }
 
@@ -38,7 +52,7 @@ export default function PersonForm() {
                 </InputMask>
                 <label>Email</label>
                 <Input type="email" {...register("email", { required: true })} />
-                <SubmitButton onClick={handleSubmit(onSubmit)}>Adicionar</SubmitButton>
+                <SubmitButton onClick={handleSubmit(onSubmit)}>{id ? 'Editar' : 'Adicionar'}</SubmitButton>
             </Form>
         </div>
     )

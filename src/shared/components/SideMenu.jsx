@@ -8,7 +8,7 @@ export default function SideMenu() {
         <Menu>
             <LogoLeo />
             <Item to="/people">Pessoas</Item>
-            <Item to="/addPeople">Nova Pessoa</Item>
+            <Item to="/addPerson">Nova Pessoa</Item>
         </Menu>
     )
 }

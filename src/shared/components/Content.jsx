@@ -13,7 +13,10 @@ export default function Content() {
                 <Route path="/people">
                     <PeopleList />
                 </Route>
-                <Route path="/addPeople">
+                <Route path="/addPerson">
+                    <PersonForm />
+                </Route>
+                <Route path="/editPerson/:id">
                     <PersonForm />
                 </Route>
                 <NotificationContainer />
