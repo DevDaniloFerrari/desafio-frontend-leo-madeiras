@@ -4,14 +4,22 @@ import { useForm } from "react-hook-form";
 import InputMask from 'react-input-mask';
 import styled from 'styled-components';
 import { NotificationManager } from 'react-notifications';
+import { useHistory } from 'react-router';
 
 export default function PersonForm() {
-    const { register, handleSubmit, reset } = useForm();
+    const history = useHistory()
+    const defaultValues = {
+        nome: '',
+        cpf: '',
+        telefone: '',
+        email: ''
+    }
+    const { register, handleSubmit } = useForm(defaultValues);
 
     const onSubmit = (data) => {
         addPerson(data)
         NotificationManager.success('Pessoa adicionada!', 'Sucesso', 3000)
-        reset()
+        history.push('/people')
     }
 
     return (

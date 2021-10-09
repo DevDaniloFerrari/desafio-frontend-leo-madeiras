@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
+import { NotificationManager } from 'react-notifications'
 import { getPeople, deletePerson } from '../../shared/services/people.service'
+import Table from '../../shared/components/Table'
 
 export default function PeopleList() {
 
@@ -8,23 +10,42 @@ export default function PeopleList() {
     const onDeletePerson = (personId) => {
         deletePerson(personId)
         setPeople(getPeople());
+        NotificationManager.success('Pessoada deletada!', 'Sucesso', 3000)
     }
 
     useEffect(() => {
         setPeople(getPeople());
     }, [])
 
+    const columns = useMemo(
+        () => [
+            {
+                Header: 'Nome',
+                accessor: 'nome',
+            },
+            {
+                Header: 'CPF',
+                accessor: 'cpf',
+            },
+            {
+                Header: 'Telefone',
+                accessor: 'telefone',
+            },
+            {
+                Header: 'Email',
+                accessor: 'email',
+            }
+        ],
+        []
+    )
+
+    console.log(people)
+    const data = useMemo(() => people, [people])
+
     return (
         <div>
             <h1>Lista de Pessoas</h1>
-            {people.map(person => {
-                return (
-                    <>
-                        <p>{person.nome}</p>
-                        <button onClick={() => onDeletePerson(person.id)}>Deletar</button>
-                    </>
-                )
-            })}
+            <Table columns={columns} data={data} />
         </div>
     )
 }
