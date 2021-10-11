@@ -3,11 +3,10 @@ import { NotificationManager } from 'react-notifications'
 import { getPeople, deletePerson } from '../../shared/services/people.service'
 import Table from '../../shared/components/Table'
 import { useHistory } from 'react-router'
-import { Delete, Edit } from '@material-ui/icons';
-import styled from 'styled-components'
 import { PageContainer, PageTitle } from '../../shared/styles/page.styles'
 import { useMediaQuery } from 'react-responsive'
 import PersonCard from '../../shared/components/PersonCard'
+import { DeleteIcon, EditIcon } from './style'
 
 export default function PeopleList() {
     const showTable = useMediaQuery({ query: '(min-width: 794px)' })
@@ -72,13 +71,3 @@ export default function PeopleList() {
         </PageContainer>
     )
 }
-
-const DeleteIcon = styled(Delete)`
-    color: red;
-    cursor: pointer;
-`
-
-const EditIcon = styled(Edit)`
-    color: gray;
-    cursor: pointer;
-`
