@@ -13,7 +13,7 @@ export default function PersonForm() {
     const person = getPerson(id)
 
     const history = useHistory()
-    const { register, handleSubmit, control } = useForm({
+    const { register, handleSubmit, control, formState } = useForm({
         defaultValues:
         {
             nome: person?.nome,
@@ -22,7 +22,6 @@ export default function PersonForm() {
             email: person?.email
         }
     });
-
 
     const onSubmit = (data) => {
         if (id) {
@@ -41,17 +40,17 @@ export default function PersonForm() {
             <h1>Adicionar Pessoa</h1>
             <Form>
                 <label>Nome</label>
-                <Input type="text" {...register("nome", { required: true })} />
+                <Input type="text" {...register("nome", { required: true })} errors={formState.errors.nome} />
                 <label>CPF</label>
-                <InputMask mask="999.999.999-99" value={control._formValues.cpf} {...register("cpf", { required: true })}>
+                <InputMask mask="999.999.999-99" value={control._formValues.cpf} {...register("cpf", { required: true })} errors={formState.errors?.cpf}>
                     {(inputProps) => <Input {...inputProps} type="text" disableUnderline />}
                 </InputMask>
                 <label>Telefone</label>
-                <InputMask mask="(99) 9 9999-9999" value={control._formValues.telefone} {...register("telefone", { required: true })}>
+                <InputMask mask="(99) 9 9999-9999" value={control._formValues.telefone} {...register("telefone", { required: true })} errors={formState.errors?.telefone}>
                     {(inputProps) => <Input {...inputProps} type="tel" disableUnderline />}
                 </InputMask>
                 <label>Email</label>
-                <Input type="email" {...register("email", { required: true })} />
+                <Input type="email" {...register("email", { required: true })} errors={formState.errors?.email} />
                 <SubmitButton onClick={handleSubmit(onSubmit)}>{id ? 'Editar' : 'Adicionar'}</SubmitButton>
             </Form>
         </div>
@@ -70,15 +69,34 @@ const Form = styled.div`
 `
 
 const Input = styled.input`
-    height: 20px;
-    width: 90%;
+    height: 40px;
+    width: 100%;
+    border: 1px solid #DCE1E5;
+    font-size: 16px;
+    color: #8E959A;
+    &&::placeholder {
+        color: #BBB;
+        opacity: 1;
+    }
+    &:focus {
+        outline: none;
+        box-shadow: 0px 0px 2px #7bdb9b;
+    }
+
+    ${props => props.errors && ({
+        outline: 'none',
+        boxShadow: '0px 0px 2px #f84545',
+    })}
 `
 
 const SubmitButton = styled.button`
     width: 30%;
     height: 30px;
     align-self: flex-end;
-    background: #18fd64;
+    background: #2bc45e;
     border: none;
     cursor: pointer;
+    color: white;
+    font-size: 18px;
+    border-radius: 13px;
 `
