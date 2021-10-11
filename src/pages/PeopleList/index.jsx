@@ -6,8 +6,13 @@ import { useHistory } from 'react-router'
 import { Delete, Edit } from '@material-ui/icons';
 import styled from 'styled-components'
 import { PageContainer, PageTitle } from '../../shared/styles/page.styles'
+import { useMediaQuery } from 'react-responsive'
+import PersonCard from '../../shared/components/PersonCard'
 
 export default function PeopleList() {
+    const showTable = useMediaQuery({ query: '(min-width: 794px)' })
+    const showCards = useMediaQuery({ query: '(max-width: 794px)' })
+
     const history = useHistory();
     const [people, setPeople] = useState([])
 
@@ -20,7 +25,6 @@ export default function PeopleList() {
     const onEditPerson = (personId) => {
         history.push('editPerson/' + personId)
     }
-
 
     useEffect(() => {
         setPeople(getPeople());
@@ -63,7 +67,8 @@ export default function PeopleList() {
     return (
         <PageContainer>
             <PageTitle>Lista de Pessoas</PageTitle>
-            <Table columns={columns} data={data} />
+            {showTable && <Table columns={columns} data={data} />}
+            {showCards && data.map(person => { return <PersonCard person={person} /> })}
         </PageContainer>
     )
 }

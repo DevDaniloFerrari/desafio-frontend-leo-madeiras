@@ -89,7 +89,7 @@ const Input = styled.input`
 
 const SubmitButton = styled.button`
     width: 30%;
-    height: 30px;
+    height: 40px;
     align-self: flex-end;
     background: #2bc45e;
     border: none;

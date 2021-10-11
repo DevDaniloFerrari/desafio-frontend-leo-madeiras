@@ -94,7 +94,6 @@ const ColumnsHeaderRow = styled.tr`
     border: 1px solid #E0E0E0;
 `
 
-
 const Th = styled.th`
   vertical-align: middle;
   color: #1B1C1D;

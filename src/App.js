@@ -33,6 +33,8 @@ function App() {
 const LogoLeo = styled.img.attrs({
   src: logo
 })`
+  top: 0;
+  position: sticky;
   background: #fafafa;
   height: 45px;
   margin-bottom: 10px;

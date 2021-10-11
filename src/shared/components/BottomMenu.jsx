@@ -36,6 +36,8 @@ const Container = styled.div`
     border: 1px solid #E6EBEF;
     justify-content: space-around;
     background: #fafafa;
+    bottom: 0;
+    position: sticky;
 `
 
 const Item = styled.div`
