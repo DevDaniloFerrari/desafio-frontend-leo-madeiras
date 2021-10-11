@@ -13,7 +13,7 @@ export default function PersonForm() {
     const person = getPerson(id)
 
     const history = useHistory()
-    const { register, handleSubmit } = useForm({
+    const { register, handleSubmit, control } = useForm({
         defaultValues:
         {
             nome: person?.nome,
@@ -43,11 +43,11 @@ export default function PersonForm() {
                 <label>Nome</label>
                 <Input type="text" {...register("nome", { required: true })} />
                 <label>CPF</label>
-                <InputMask mask="999.999.999-99" {...register("cpf", { required: true })}>
+                <InputMask mask="999.999.999-99" value={control._formValues.cpf} {...register("cpf", { required: true })}>
                     {(inputProps) => <Input {...inputProps} type="text" disableUnderline />}
                 </InputMask>
                 <label>Telefone</label>
-                <InputMask mask="(99) 9 9999-9999" {...register("telefone", { required: true })}>
+                <InputMask mask="(99) 9 9999-9999" value={control._formValues.telefone} {...register("telefone", { required: true })}>
                     {(inputProps) => <Input {...inputProps} type="tel" disableUnderline />}
                 </InputMask>
                 <label>Email</label>
