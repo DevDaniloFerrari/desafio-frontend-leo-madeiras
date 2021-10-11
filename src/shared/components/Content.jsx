@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import PeopleList from '../../pages/PeopleList'
 import PersonForm from '../../pages/PersonForm'
 import styled from 'styled-components'
@@ -10,6 +10,9 @@ export default function Content() {
     return (
         <Switch>
             <Container>
+                <Route path="/" >
+                    <Redirect to="/people" />
+                </Route>
                 <Route path="/people">
                     <PeopleList />
                 </Route>
