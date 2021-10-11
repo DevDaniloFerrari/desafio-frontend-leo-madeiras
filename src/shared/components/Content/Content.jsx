@@ -4,7 +4,6 @@ import PeopleList from '../../../pages/PeopleList'
 import PersonForm from '../../../pages/PersonForm'
 import { NotificationContainer } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
-import { Container } from './style';
 
 export default function Content() {
     return (

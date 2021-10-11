@@ -38,10 +38,10 @@ export default function PersonForm() {
 
     return (
         <PageContainer>
-            <PageTitle>Adicionar Pessoa</PageTitle>
+            <PageTitle>{id ? 'Editar Pessoa' : 'Adicionar Pessoa'}</PageTitle>
             <Form>
                 <label>Nome</label>
-                <Input type="text" {...register("nome", { required: true })} errors={formState.errors.nome} />
+                <Input id="nome" type="text" {...register("nome", { required: true })} errors={formState.errors.nome} />
                 <label>CPF</label>
                 <InputMask mask="999.999.999-99" value={control._formValues.cpf} {...register("cpf", { required: true })} errors={formState.errors?.cpf}>
                     {(inputProps) => <Input {...inputProps} type="text" disableUnderline />}

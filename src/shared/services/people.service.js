@@ -20,7 +20,7 @@ const getPeople = () => {
 
 const getPerson = (id) => {
     let people = JSON.parse(localStorage.getItem('people'))
-    return people.find(x => x.id === id)
+    return people && people.find(x => x.id === id)
 }
 
 const deletePerson = (id) => {
