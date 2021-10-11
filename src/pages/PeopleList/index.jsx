@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import { NotificationManager } from 'react-notifications'
 import { getPeople, deletePerson } from '../../shared/services/people.service'
-import Table from '../../shared/components/Table'
+import Table from '../../shared/components/Table/Table'
 import { useHistory } from 'react-router'
 import { PageContainer, PageTitle } from '../../shared/styles/page.styles'
 import { useMediaQuery } from 'react-responsive'
-import PersonCard from '../../shared/components/PersonCard'
+import PersonCard from '../../shared/components/PersonCard/PersonCard'
 import { DeleteIcon, EditIcon } from './style'
 
 export default function PeopleList() {

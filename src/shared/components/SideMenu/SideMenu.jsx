@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import logo from '../../assets/logo-leo.svg'
-import ArrowRightSrc from '../../assets/arrow-right.png'
-import AddUserSrc from '../../assets/add-person.png'
-import PeopleSrc from '../../assets/people.png'
+import logo from '../../../assets/logo-leo.svg'
+import ArrowRightSrc from '../../../assets/arrow-right.png'
+import AddUserSrc from '../../../assets/add-person.png'
+import PeopleSrc from '../../../assets/people.png'
 import { useHistory } from 'react-router'
 
 export default function SideMenu() {

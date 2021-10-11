@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import AddUserSrc from '../../assets/add-person.png'
-import PeopleSrc from '../../assets/people.png'
+import AddUserSrc from '../../../assets/add-person.png'
+import PeopleSrc from '../../../assets/people.png'
 import { useHistory } from 'react-router'
 
 export default function BottomMenu() {

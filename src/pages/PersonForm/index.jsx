@@ -7,7 +7,7 @@ import { useHistory } from 'react-router';
 import { useParams } from 'react-router-dom'
 import { getPerson } from '../../shared/services/people.service'
 import { PageContainer, PageTitle } from '../../shared/styles/page.styles';
-import { Form, Input } from './style';
+import { Form, Input, SubmitButton } from './style';
 
 export default function PersonForm() {
     const { id } = useParams();
