@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import logo from '../../assets/logo-leo.svg'
@@ -10,22 +10,25 @@ import { useHistory } from 'react-router'
 export default function SideMenu() {
     const history = useHistory();
 
-    const isSelected = (path) => {
-        return history.location.pathname === path
+    const [currentPath, setCurrentPath] = useState("/people")
+
+    const goTo = (path) => {
+        history.push(path);
+        setCurrentPath(path)
     }
 
     return (
         <Menu>
             <LogoLeo />
-            <SideMenuItem to={"/people"} iconSrc={PeopleSrc} selected={isSelected("/people")} title="Lista de Pessoas" />
-            <SideMenuItem to={"/addPerson"} iconSrc={AddUserSrc} selected={isSelected("/addPerson")} title="Adicionar Pessoa" />
+            <SideMenuItem onClick={() => goTo("/people")} iconSrc={PeopleSrc} selected={currentPath === "/people"} title="Lista de Pessoas" />
+            <SideMenuItem onClick={() => goTo("/addPerson")} iconSrc={AddUserSrc} selected={currentPath === "/addPerson"} title="Adicionar Pessoa" />
         </Menu>
     )
 }
 
-const SideMenuItem = ({ to, iconSrc, selected, title }) => {
+const SideMenuItem = ({ onClick, iconSrc, selected, title }) => {
     return (
-        <Item to={to}>
+        <Item onClick={onClick}>
             <SidebarIcon src={iconSrc} />
             <SidebarTitleAndSubtitle>
                 <Title selected={selected}>{title}</Title>
@@ -51,7 +54,7 @@ const LogoLeo = styled.img.attrs({
     margin-bottom: 20px;
 `
 
-const Item = styled(Link)`
+const Item = styled.div`
     border: 1px solid #E6EBEF;
     border-radius: 8px;
     display: flex;
