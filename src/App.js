@@ -20,7 +20,7 @@ function App() {
         </div>
       }
       {isTabletOrMobile &&
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
           <LogoLeo />
           <Content />
           <BottomMenu />

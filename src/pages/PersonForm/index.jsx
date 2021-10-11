@@ -64,8 +64,7 @@ const Form = styled.div`
     gap: 10px;
     background-color: white;
     height: 300px;
-    border-radius: 20px;
-    padding: 20px;
+    margin-top: 15px;
 `
 
 const Input = styled.input`

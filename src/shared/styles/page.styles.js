@@ -4,6 +4,7 @@ export const PageContainer = styled.div `
     display: flex;
     flex-direction: column;
     margin: 15px;
+    width: 100%;
 `
 
 export const PageTitle = styled.div `
