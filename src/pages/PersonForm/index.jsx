@@ -7,6 +7,7 @@ import { NotificationManager } from 'react-notifications';
 import { useHistory } from 'react-router';
 import { useParams } from 'react-router-dom'
 import { getPerson } from '../../shared/services/people.service'
+import { PageContainer, PageTitle } from '../../shared/styles/page.styles';
 
 export default function PersonForm() {
     const { id } = useParams();
@@ -36,8 +37,8 @@ export default function PersonForm() {
     }
 
     return (
-        <div>
-            <h1>Adicionar Pessoa</h1>
+        <PageContainer>
+            <PageTitle>Adicionar Pessoa</PageTitle>
             <Form>
                 <label>Nome</label>
                 <Input type="text" {...register("nome", { required: true })} errors={formState.errors.nome} />
@@ -53,7 +54,7 @@ export default function PersonForm() {
                 <Input type="email" {...register("email", { required: true })} errors={formState.errors?.email} />
                 <SubmitButton onClick={handleSubmit(onSubmit)}>{id ? 'Editar' : 'Adicionar'}</SubmitButton>
             </Form>
-        </div>
+        </PageContainer>
     )
 }
 
@@ -62,7 +63,6 @@ const Form = styled.div`
     flex-direction: column;
     gap: 10px;
     background-color: white;
-    width: 700px;
     height: 300px;
     border-radius: 20px;
     padding: 20px;
@@ -70,7 +70,6 @@ const Form = styled.div`
 
 const Input = styled.input`
     height: 40px;
-    width: 100%;
     border: 1px solid #DCE1E5;
     font-size: 16px;
     color: #8E959A;

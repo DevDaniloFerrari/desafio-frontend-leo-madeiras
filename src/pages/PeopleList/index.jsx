@@ -5,6 +5,7 @@ import Table from '../../shared/components/Table'
 import { useHistory } from 'react-router'
 import { Delete, Edit } from '@material-ui/icons';
 import styled from 'styled-components'
+import { PageContainer, PageTitle } from '../../shared/styles/page.styles'
 
 export default function PeopleList() {
     const history = useHistory();
@@ -60,10 +61,10 @@ export default function PeopleList() {
     })), [people])
 
     return (
-        <div>
-            <h1>Lista de Pessoas</h1>
+        <PageContainer>
+            <PageTitle>Lista de Pessoas</PageTitle>
             <Table columns={columns} data={data} />
-        </div>
+        </PageContainer>
     )
 }
 

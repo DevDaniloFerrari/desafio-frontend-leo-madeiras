@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import logo from '../../assets/logo-leo.svg'
 import ArrowRightSrc from '../../assets/arrow-right.png'
