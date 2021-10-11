@@ -39,7 +39,8 @@ const Menu = styled.div`
     display: flex;
     flex-direction: column;
     width: 250px;
-    margin: 10px;
+    padding: 10px;
+    background: #fafafa;
 `
 
 const LogoLeo = styled.img.attrs({
@@ -62,6 +63,8 @@ const Item = styled(Link)`
     margin-bottom: 12px;
     cursor: pointer;
     overflow: hidden;
+    background: white;
+    text-decoration: none;
 `;
 
 const SidebarIcon = styled.img.attrs({ draggable: false })

@@ -27,7 +27,6 @@ export default function Content() {
 
 const Container = styled.div`
     display: flex;
-    background: #f1f1f1;
     flex: 1;
     height: 100vh;
     padding-left: 10px;
