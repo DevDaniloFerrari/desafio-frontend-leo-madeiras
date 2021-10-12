@@ -12,3 +12,9 @@ export const EditIcon = styled(Edit)
     color: gray;
     cursor: pointer;
 `
+
+export const EmptyState = styled.div `
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+`

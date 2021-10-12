@@ -6,7 +6,7 @@ import { useHistory } from 'react-router'
 import { PageContainer, PageTitle } from '../../shared/styles/page.styles'
 import { useMediaQuery } from 'react-responsive'
 import PersonCard from '../../shared/components/PersonCard/PersonCard'
-import { DeleteIcon, EditIcon } from './style'
+import { DeleteIcon, EditIcon, EmptyState } from './style'
 
 export default function PeopleList() {
     const showTable = useMediaQuery({ query: '(min-width: 910px)' })
@@ -66,6 +66,7 @@ export default function PeopleList() {
     return (
         <PageContainer>
             <PageTitle>Lista de Pessoas</PageTitle>
+            {people.length === 0 && <EmptyState>Nenhuma pessoa cadastrada</EmptyState>}
             {showTable && <Table columns={columns} data={data} />}
             {showCards && data.map(person => { return <PersonCard person={person} /> })}
         </PageContainer>
