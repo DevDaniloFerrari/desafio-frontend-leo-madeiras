@@ -67,7 +67,7 @@ export default function PeopleList() {
         <PageContainer>
             <PageTitle>Lista de Pessoas</PageTitle>
             {people.length === 0 && <EmptyState>Nenhuma pessoa cadastrada</EmptyState>}
-            {showTable && <Table columns={columns} data={data} />}
+            {showTable && people.length != 0 && <Table columns={columns} data={data} />}
             {showCards && data.map(person => { return <PersonCard person={person} /> })}
         </PageContainer>
     )
