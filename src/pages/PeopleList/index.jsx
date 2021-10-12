@@ -26,7 +26,7 @@ export default function PeopleList() {
     }
 
     useEffect(() => {
-        setPeople(getPeople());
+        setPeople(getPeople() || []);
     }, [])
 
     const columns = useMemo(
@@ -55,7 +55,7 @@ export default function PeopleList() {
         []
     )
 
-    const data = useMemo(() => people?.map(person => ({
+    const data = useMemo(() => people.map(person => ({
         ...person,
         acoes: <>
             <EditIcon onClick={() => onEditPerson(person.id)} />
