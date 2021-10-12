@@ -43,11 +43,11 @@ export default function PersonForm() {
                 <label>Nome</label>
                 <Input id="nome" type="text" {...register("nome", { required: true })} errors={formState.errors.nome} />
                 <label>CPF</label>
-                <InputMask mask="999.999.999-99" value={control._formValues.cpf} {...register("cpf", { required: true })} errors={formState.errors?.cpf}>
+                <InputMask mask="999.999.999-99" defaultValue={control._formValues.cpf} {...register("cpf", { required: true })} errors={formState.errors?.cpf}>
                     {(inputProps) => <Input {...inputProps} type="text" disableUnderline />}
                 </InputMask>
                 <label>Telefone</label>
-                <InputMask mask="(99) 9 9999-9999" value={control._formValues.telefone} {...register("telefone", { required: true })} errors={formState.errors?.telefone}>
+                <InputMask mask="(99) 9 9999-9999" defaultValue={control._formValues.telefone} {...register("telefone", { required: true })} errors={formState.errors?.telefone}>
                     {(inputProps) => <Input {...inputProps} type="tel" disableUnderline />}
                 </InputMask>
                 <label>Email</label>
