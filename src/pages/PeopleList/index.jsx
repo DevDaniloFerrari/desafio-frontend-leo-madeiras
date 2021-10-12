@@ -9,8 +9,8 @@ import PersonCard from '../../shared/components/PersonCard/PersonCard'
 import { DeleteIcon, EditIcon } from './style'
 
 export default function PeopleList() {
-    const showTable = useMediaQuery({ query: '(min-width: 794px)' })
-    const showCards = useMediaQuery({ query: '(max-width: 794px)' })
+    const showTable = useMediaQuery({ query: '(min-width: 910px)' })
+    const showCards = useMediaQuery({ query: '(max-width: 910px)' })
 
     const history = useHistory();
     const [people, setPeople] = useState([])
