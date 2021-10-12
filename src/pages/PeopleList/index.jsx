@@ -55,7 +55,7 @@ export default function PeopleList() {
         []
     )
 
-    const data = useMemo(() => people.map(person => ({
+    const data = useMemo(() => people?.map(person => ({
         ...person,
         acoes: <>
             <EditIcon onClick={() => onEditPerson(person.id)} />
